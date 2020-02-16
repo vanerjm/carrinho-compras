@@ -1,0 +1,38 @@
+<div id="main" class="container-fluid">
+
+  <div id="list" class="row">
+    <div id="top" class="row">
+      <div class="col-md-6">
+        <h2>Usuários</h2>
+      </div>
+
+      <div class="col-md-6">
+        <a routerLink="/adduser" class="btn btn-primary pull-right h2">Novo Usuário</a>
+      </div>
+    </div>    <!-- /#top -->
+    <div class="table-responsive col-md-12">
+      <table class="table table-striped" cellspacing="0" cellpadding="0">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th class="actions">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users | async">
+            <td>{{user.id}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td class="actions">
+              <a (click)="editUser(user.id)" class="btn btn-warning btn-xs">Editar</a>
+              <a (click)="deleteUser(user.id)" class="btn btn-danger btn-xs">Excluir</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>  <!-- /#list -->
+</div><!-- /#main -->

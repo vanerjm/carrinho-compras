@@ -1,0 +1,19 @@
+<div class="card my-5">
+    <div class="card-body">
+        <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+            <div class="form-group">
+                <label for="name">Nome do Item</label>
+                <input type="text" [(ngModel)]="item.name" class="form-control" id="name" name="name" placeholder="Nome do Item"
+            required #name="ngModel"/>
+            </div>
+            <div [hidden]="!name.pristine" class="alert alert-danger">Nome do Item é necessário</div>
+            <div class="form-group">
+                <label for="value">Valor</label>
+                <input type="text" [(ngModel)]="item.value" class="form-control" id="value" name="value" placeholder="Valor do Item"
+            required #value="ngModel"/>
+                <div [hidden]="!value.pristine" class="alert alert-danger">Valor do Item é necessário</div>
+            </div>
+            <button type="submit" [disabled]="!itemForm.form.valid" class="btn btn-info">Submit</button>
+        </form>
+    </div>
+</div>
