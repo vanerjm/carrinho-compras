@@ -7,9 +7,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import br.com.vaner.carrinhocompras.entities.Item;
 import br.com.vaner.carrinhocompras.entities.User;
@@ -44,6 +41,5 @@ public class CarrinhocomprasApplication {
             });
             itemRepository.findAll().forEach(System.out::println);
         };
-    }
-	
+    }		
 }

@@ -1,28 +1,35 @@
-<div class="panel panel-primary">
-  <div class="panel-heading">
-    <h2>Lista de Itens</h2>
-  </div>
-  <div class="panel-body">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Id</th>
-          <th>Name</th>
-          <th>Valor</th>
-          <th>Ações</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of items | async">
-          <td>{{item.id}}</td>
-          <td>{{item.name}}</td>
-          <td>{{item.value}}</td>
-          <td>
-            <button (click)="deleteItem(item.id)" class="btn btn-danger">Remover</button>
-            <button (click)="editItem(item.id)" class="btn btn-info" style="margin-left: 10px">Editar</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+<div id="main" class="container-fluid">
+  <div id="list" class="row">
+    <div id="top" class="row">
+      <div class="col-md-6">
+        <h2>Lista de Itens</h2>
+      </div>
+      <div class="col-md-6">
+        <a routerLink="/additem" class="btn btn-primary pull-right h2">Novo Item</a>
+      </div>
+    </div>
+    <div class="table-responsive col-md-12">
+      <table class="table table-striped" cellspacing="0" cellpadding="0">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Valor</th>
+            <th class="actions">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of items | async">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.value}}</td>
+            <td class="actions">
+              <a (click)="editItem(item.id)" class="btn btn-warning btn-xs">Editar</a>
+              <a (click)="deleteItem(item.id)" class="btn btn-danger btn-xs">Excluir</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
