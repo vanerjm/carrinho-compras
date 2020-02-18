@@ -15,14 +15,14 @@ export class ItemUpdateComponent implements OnInit {
   item: Item;
 
   constructor(private route: ActivatedRoute,private router: Router,
-    private userService: ItemService) { }
+    private itemService: ItemService) { }
 
   ngOnInit() {
     this.item = new Item();
 
     this.id = this.route.snapshot.params['id'];
 
-    this.userService.getItem(this.id)
+    this.itemService.getItem(this.id)
       .subscribe(data => {
         console.log(data)
         this.item = data;
@@ -30,7 +30,7 @@ export class ItemUpdateComponent implements OnInit {
   }
 
   updateItem() {
-    this.userService.updateItem(this.id, this.item)
+    this.itemService.updateItem(this.id, this.item)
       .subscribe(data => console.log(data), error => console.log(error));
     this.item = new Item();
     this.gotoList();

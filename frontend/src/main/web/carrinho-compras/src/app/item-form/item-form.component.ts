@@ -20,6 +20,7 @@ export class ItemFormComponent {
   }
 
   onSubmit() {
+       console.log(this.item);
     this.itemService.save(this.item).subscribe(result => this.gotoItemsList());
   }
 

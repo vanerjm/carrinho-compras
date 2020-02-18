@@ -21,6 +21,8 @@ export class UserFormComponent {
   }
 
   onSubmit() {
+      console.log(JSON.stringify(this.user));
+      
     this.userService.save(this.user).subscribe(result => this.gotoUserList());
   }
 

@@ -1,5 +1,9 @@
 export class Item {
-    id: string;
-    name: string;
-    value: number;
+    public id: string;
+    public name: string;
+    public value: number;
+    
+    public toString = () : string => {
+        return `Item (id: ${this.id})`;
+    }
 }

@@ -1,0 +1,41 @@
+<div id="main" class="container-fluid">
+    <div id="list" class="row">
+        <div id="top" class="row">
+            <div class="col-md-6">
+                <h2>Lista de Carrinhos</h2>
+            </div>
+            <div class="col-md-6">
+                <a routerLink="/addcart" class="btn btn-primary pull-right h2">Novo Carrinho</a>
+            </div>
+        </div>
+        <div class="table-responsive col-md-12">
+            <table class="table table-striped" cellspacing="0" cellpadding="0">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Comprador</th>
+                        <th>Itens</th>
+                        <th>Total</th>
+                        <th class="actions">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let cart of carts | async">
+                        <td>{{cart.id}}</td>
+                        <td>{{cart.user.name}}</td>
+                        <td>
+                            <tr *ngFor="let item of cart['items']">
+                                <td>{{item.name}} - R${{item.value}}</td>
+                            </tr>
+                        </td>
+                        <td>R${{cart.total}}</td>
+                        <td class="actions">
+                            <a (click)="editCart(cart.id)" class="btn btn-warning btn-xs">Editar</a>
+                            <a (click)="deleteCart(cart.id)" class="btn btn-danger btn-xs">Excluir</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
