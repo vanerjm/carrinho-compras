@@ -2,28 +2,19 @@ package br.com.vaner.carrinhocompras.entities;
 
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
+@Document(collection = "cart")
 public class Cart {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	@Id String id;
 
-	@OneToOne
-	@JoinColumn(name = "user_id")
+	@DBRef
 	private User user;
 	
-	@OneToMany
-	@JoinColumn(name = "item_list")
+	@DBRef
 	private List<Item> items;
 	
 	private float total;
@@ -66,7 +57,7 @@ public class Cart {
 		}
 	}
 
-	public long getId() {
+	public String getId() {
 		return id;
 	}
 

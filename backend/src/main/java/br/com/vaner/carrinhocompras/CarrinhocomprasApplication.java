@@ -19,27 +19,4 @@ public class CarrinhocomprasApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CarrinhocomprasApplication.class, args);
 	}
-
-	@Bean
-    CommandLineRunner initUsers(UserRepository userRepository) {
-        return args -> {
-            Stream.of("John", "Julie", "Jennifer", "Helen", "Rachel").forEach(name -> {
-                User user = new User(name, name.toLowerCase() + "@domain.com");
-                userRepository.save(user);
-            });
-            userRepository.findAll().forEach(System.out::println);
-        };
-    }
-	
-	@Bean
-    CommandLineRunner initItems(ItemRepository itemRepository) {
-		
-        return args -> {
-            Stream.of("Sabonete", "Shampoo", "Papel Higienico", "Creme Dental", "Escova de Dentes").forEach(name -> {
-                Item item = new Item(name, new Random().nextFloat()*100F);
-                itemRepository.save(item);
-            });
-            itemRepository.findAll().forEach(System.out::println);
-        };
-    }		
 }

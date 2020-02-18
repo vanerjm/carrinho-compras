@@ -25,11 +25,11 @@ public class CartController {
 	
 	@GetMapping("/carts")
 	public List<Cart> getCarts() {
-		return (List<Cart>) cartRepository.findAll();
+		return (List<Cart>) cartRepository.findAllByOrderByTotalDesc();
 	}
 
 	@GetMapping("/carts/{id}")
-	public ResponseEntity<Cart> getCartById(@PathVariable(value = "id") Long cartId) throws Exception {
+	public ResponseEntity<Cart> getCartById(@PathVariable(value = "id") String cartId) throws Exception {
 		Cart targetCart = cartRepository.findById(cartId)
 				.orElseThrow(() -> new Exception("Cart not found for this id :: " + cartId));
 		
@@ -42,7 +42,7 @@ public class CartController {
 	}
 
 	@PutMapping("/carts/{id}")
-	public ResponseEntity<Cart> editCart(@PathVariable(value = "id") Long cartId, @RequestBody Cart cartInfo) throws Exception {
+	public ResponseEntity<Cart> editCart(@PathVariable(value = "id") String cartId, @RequestBody Cart cartInfo) throws Exception {
 
 		Cart targetCart = cartRepository.findById(cartInfo.getId())
 				.orElseThrow(() -> new Exception("Cart not found for this id :: " + cartId));
@@ -56,7 +56,7 @@ public class CartController {
 	}
 
 	@DeleteMapping("/carts/{id}")
-	public Boolean deleteCart(@PathVariable(value = "id") Long cartId) throws Exception {
+	public Boolean deleteCart(@PathVariable(value = "id") String cartId) throws Exception {
 		Cart targetCart = cartRepository.findById(cartId)
 				.orElseThrow(() -> new Exception("Cart not found for this id :: " + cartId));
 		

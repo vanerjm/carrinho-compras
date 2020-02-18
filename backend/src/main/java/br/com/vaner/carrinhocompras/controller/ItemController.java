@@ -29,7 +29,7 @@ public class ItemController {
 	}
 
 	@GetMapping("/items/{id}")
-	public ResponseEntity<Item> getUserById(@PathVariable(value = "id") Long itemId) throws Exception {
+	public ResponseEntity<Item> getUserById(@PathVariable(value = "id") String itemId) throws Exception {
 		Item targetUser = itemRepository.findById(itemId)
 				.orElseThrow(() -> new Exception("Item not found for this id :: " + itemId));
 		
@@ -42,7 +42,7 @@ public class ItemController {
 	}
 
 	@PutMapping("/items/{id}")
-	public ResponseEntity<Item> editUser(@PathVariable(value = "id") Long itemId, @RequestBody Item itemInfo) throws Exception {
+	public ResponseEntity<Item> editUser(@PathVariable(value = "id") String itemId, @RequestBody Item itemInfo) throws Exception {
 
 		Item targetUser = itemRepository.findById(itemInfo.getId())
 				.orElseThrow(() -> new Exception("Item not found for this id :: " + itemId));
@@ -56,7 +56,7 @@ public class ItemController {
 	}
 
 	@DeleteMapping("/items/{id}")
-	public Boolean deleteUser(@PathVariable(value = "id") Long itemId) throws Exception {
+	public Boolean deleteUser(@PathVariable(value = "id") String itemId) throws Exception {
 		Item targetUser = itemRepository.findById(itemId)
 				.orElseThrow(() -> new Exception("Item not found for this id :: " + itemId));
 		

@@ -29,7 +29,7 @@ public class UserController {
 	}
 
 	@GetMapping("/users/{id}")
-	public ResponseEntity<User> getUserById(@PathVariable(value = "id") Long userId) throws Exception {
+	public ResponseEntity<User> getUserById(@PathVariable(value = "id") String userId) throws Exception {
 		User targetUser = userRepository.findById(userId)
 				.orElseThrow(() -> new Exception("User not found for this id :: " + userId));
 		
@@ -42,7 +42,7 @@ public class UserController {
 	}
 
 	@PutMapping("/users/{id}")
-	public ResponseEntity<User> editUser(@PathVariable(value = "id") Long userId, @RequestBody User userInfo) throws Exception {
+	public ResponseEntity<User> editUser(@PathVariable(value = "id") String userId, @RequestBody User userInfo) throws Exception {
 
 		User targetUser = userRepository.findById(userInfo.getId())
 				.orElseThrow(() -> new Exception("User not found for this id :: " + userId));
@@ -56,7 +56,7 @@ public class UserController {
 	}
 
 	@DeleteMapping("/users/{id}")
-	public Boolean deleteUser(@PathVariable(value = "id") Long userId) throws Exception {
+	public Boolean deleteUser(@PathVariable(value = "id") String userId) throws Exception {
 		User targetUser = userRepository.findById(userId)
 				.orElseThrow(() -> new Exception("User not found for this id :: " + userId));
 		

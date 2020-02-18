@@ -1,16 +1,13 @@
 package br.com.vaner.carrinhocompras.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
-@Entity
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "item")
 public class Item {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	@Id String id;
 	private String name;
 	private Float value;
 
@@ -40,9 +37,10 @@ public class Item {
 		this.value = value;
 	}
 
-	public long getId() {
+	public String getId() {
 		return id;
 	}
+
 
 	@Override
 	public String toString() {
