@@ -8,6 +8,7 @@ import { ItemFormComponent } from './item-form/item-form.component';
 import { ItemUpdateComponent } from './item-update/item-update.component';
 import { CartListComponent } from './cart-list/cart-list.component';
 import { CartFormComponent } from './cart-form/cart-form.component';
+import { CartUpdateComponent } from './cart-update/cart-update.component';
 
 const routes: Routes = [
   { path: '', component: UserListComponent },
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: 'additem', component: ItemFormComponent },
   { path: 'edititem/:id', component: ItemUpdateComponent },
   { path: 'carts', component: CartListComponent },
-  { path: 'addcart', component: CartFormComponent }
+  { path: 'addcart', component: CartFormComponent },
+  { path: 'editcart/:id', component: CartUpdateComponent }
 ];
 
 @NgModule({

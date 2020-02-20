@@ -11,7 +11,7 @@ import { ItemService } from '../service/item.service';
 })
 export class ItemUpdateComponent implements OnInit {
 
-  id: number;
+  id: string;
   item: Item;
 
   constructor(private route: ActivatedRoute,private router: Router,

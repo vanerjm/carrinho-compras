@@ -17,7 +17,7 @@ import br.com.vaner.carrinhocompras.entities.User;
 import br.com.vaner.carrinhocompras.repositories.UserRepository;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4201")
 public class UserController {
 
 	@Autowired

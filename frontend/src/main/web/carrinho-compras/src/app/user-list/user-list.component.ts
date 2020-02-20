@@ -24,7 +24,7 @@ export class UserListComponent implements OnInit {
     this.users = this.userService.findAll();
   }
 
-  deleteUser(id: number) {
+  deleteUser(id: string) {
     this.userService.deleteUser(id)
       .subscribe(
         data => {
@@ -34,7 +34,7 @@ export class UserListComponent implements OnInit {
         error => console.log(error));
   }
 
-  editUser(id: number){
+  editUser(id: string){
     this.router.navigate(['edituser', id]);
   }
 }

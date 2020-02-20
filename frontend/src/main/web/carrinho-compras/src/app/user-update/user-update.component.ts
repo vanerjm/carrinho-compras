@@ -10,7 +10,7 @@ import { UserService } from '../service/user-service.service';
   styleUrls: ['./user-update.component.css']
 })
 export class UserUpdateComponent implements OnInit {
-  id: number;
+  id: string;
   user: User;
 
   constructor(private route: ActivatedRoute,private router: Router,

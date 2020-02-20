@@ -25,7 +25,7 @@ export class CartListComponent implements OnInit {
     this.carts = this.cartService.findAll();
   }
 
-  deleteCart(id: number) {
+  deleteCart(id: string) {
     this.cartService.deleteCart(id)
       .subscribe(
         data => {
@@ -35,7 +35,7 @@ export class CartListComponent implements OnInit {
         error => console.log(error));
   }
 
-  editCart(id: number){
+  editCart(id: string){
     this.router.navigate(['editcart', id]);
   }
 

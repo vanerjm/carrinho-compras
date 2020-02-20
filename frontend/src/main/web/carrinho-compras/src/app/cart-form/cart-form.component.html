@@ -3,25 +3,23 @@
         <form (ngSubmit)="onSubmit()" #userForm="ngForm">
             <div class="form-group">
                 <label for="name">Escolha um usuário</label>
-                <br>                
-                <ng-select placeholder="Selecione um usuário" appendTo="body" [(ngModel)]="selectedUser" (change)="userChanged()" name="userSelect">
-                    <ng-option [value]="user.id" *ngFor="let user of users | async" name="user.name">
+            <br>                
+            <ng-select placeholder="Selecione um usuário" appendTo="body" [(ngModel)]="selectedUser" (change)="userChanged()" name="userSelect">
+                <ng-option [value]="user.id" *ngFor="let user of users | async" name="user.name">
                         {{user.name}}
-                    </ng-option>
-                </ng-select>
-                
-            </div>
-            <div class="form-group">
-                <label for="value">Itens</label>
-                <br> 
-                <ng-select placeholder="Selecione um item" appendTo="body" multiple="true" [(ngModel)]="selectedItems" (change)="itemsChanged()" name="itemSelect">
+                </ng-option>
+            </ng-select>
+        </div>
+        <div class="form-group">
+            <label for="value">Itens</label>
+            <br> 
+                <ng-select placeholder="Selecione um item" appendTo="body" multiple="true" [(ngModel)]="selectedItems" (change)="itemsChanged()" name="itemSelect" [closeOnSelect]="false">
                     <ng-option [value]="item.id" *ngFor="let item of items | async" name="item.name">
                         {{item.name}} - {{item.value}}
                     </ng-option>
                 </ng-select>
-    
             </div>
-            <button type="submit"  class="btn btn-info">Submit</button>
+            <button type="submit"  class="btn btn-info">Confirmar</button>
         </form>
     </div>
 </div>

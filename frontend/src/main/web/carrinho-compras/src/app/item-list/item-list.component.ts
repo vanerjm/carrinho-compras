@@ -24,7 +24,7 @@ export class ItemListComponent implements OnInit {
     this.items = this.itemService.findAll();
   }
 
-  deleteItem(id: number) {
+  deleteItem(id: string) {
     this.itemService.deleteItem(id)
       .subscribe(
         data => {
@@ -34,7 +34,7 @@ export class ItemListComponent implements OnInit {
         error => console.log(error));
   }
 
-  editItem(id: number){
+  editItem(id: string){
     this.router.navigate(['edititem', id]);
   }
 }

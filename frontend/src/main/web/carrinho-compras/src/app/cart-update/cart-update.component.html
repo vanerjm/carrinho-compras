@@ -1,1 +1,19 @@
-<p>cart-update works!</p>
+<div class="card my-5">
+    <div class="card-body">
+        <p><b>Carrinho id:</b> {{cart.id}}</p>
+        <br>
+        <p><b>Nome do Comprador:</b> {{cart.user.name}}</p>
+        <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+            <div class="form-group">
+                <label for="value">Itens:</label>
+                <br> 
+                <ng-select placeholder="Selecione um item" appendTo="body" multiple="true" [(ngModel)]="selectedItems" (change)="itemsChanged()" name="itemSelect" [closeOnSelect]="false">
+                    <ng-option [value]="item.id" *ngFor="let item of items" name="item.name">
+                        {{item.name}} - {{item.value}}
+                    </ng-option>
+                </ng-select>    
+            </div>
+            <button type="submit"  class="btn btn-info">Confirmar</button>
+        </form>
+    </div>
+</div>

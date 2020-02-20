@@ -18,16 +18,19 @@ public class Cart {
 	private List<Item> items;
 	
 	private float total;
+	
+	private boolean isClosed;
 
 	public Cart() {
 		super();
 	}
 	
-	public Cart(User user, List<Item> items) {
+	public Cart(User user, List<Item> items, boolean status) {
 		super();
 		this.user = user;
 		this.items = items;
 		this.total = 0;
+		this.isClosed= false;
 		
 		if(this.items != null) {
 			for (Item item : items) {
@@ -63,5 +66,15 @@ public class Cart {
 
 	public float getTotal() {
 		return total;
-	}	
+	}
+
+	public boolean isStatus() {
+		return isClosed;
+	}
+
+	public void setStatus(boolean status) {
+		this.isClosed = status;
+	}
+	
+	
 }

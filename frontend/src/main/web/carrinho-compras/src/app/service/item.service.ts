@@ -18,7 +18,7 @@ export class ItemService {
     return this.http.get<Item[]>(this.itemsUrl);
   }
 
-  public getItem(id: number): Observable<Item> {
+  public getItem(id: string): Observable<Item> {
     return this.http.get<Item>(`${this.itemsUrl}/${id}`);
   }
 
@@ -26,11 +26,11 @@ export class ItemService {
     return this.http.post<Item>(this.itemsUrl, item);
   }
 
-  public updateItem(id: number, value: Item): Observable<Item> {
+  public updateItem(id: string, value: Item): Observable<Item> {
     return this.http.put<Item>(`${this.itemsUrl}/${id}`, value);
   }
 
-  public deleteItem(id: number): Observable<Item> {
+  public deleteItem(id: string): Observable<Item> {
     return this.http.delete<Item>(`${this.itemsUrl}/${id}`);
   }
 }

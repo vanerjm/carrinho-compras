@@ -18,7 +18,7 @@ export class CartService {
     return this.http.get<Cart[]>(this.cartsUrl);
   }
 
-  public getCart(id: number): Observable<Cart> {
+  public getCart(id: string): Observable<Cart> {
     return this.http.get<Cart>(`${this.cartsUrl}/${id}`);
   }
 
@@ -27,11 +27,11 @@ export class CartService {
     return this.http.post<Cart>(this.cartsUrl, cart);
   }
 
-  public updateCart(id: number, value: Cart): Observable<Cart> {
+  public updateCart(id: string, value: Cart): Observable<Cart> {
     return this.http.put<Cart>(`${this.cartsUrl}/${id}`, value);
   }
 
-  public deleteCart(id: number): Observable<Cart> {
+  public deleteCart(id: string): Observable<Cart> {
     return this.http.delete<Cart>(`${this.cartsUrl}/${id}`);
   }
 }

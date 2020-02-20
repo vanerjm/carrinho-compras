@@ -17,7 +17,7 @@ import br.com.vaner.carrinhocompras.entities.Item;
 import br.com.vaner.carrinhocompras.repositories.ItemRepository;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4201")
 public class ItemController {
 
 	@Autowired
