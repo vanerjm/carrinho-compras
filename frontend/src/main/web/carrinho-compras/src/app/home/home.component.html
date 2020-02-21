@@ -70,6 +70,12 @@
     <em>docker run -d -p 27017:27017 -e AUTH=no tutum/mongodb</em>
 </p>
 <p>Este comando fará o download mongodb e o inicializará na porta 27017 sem nenhuma autenticação (usuário/senha).</p>
+<p>Alternativamente ao docker, criei um cluster MongoDb no site https://cloud.mongodb.com/ que também pode ser utilizado. A URI de conexão é:</p>
+<p>
+    <em>mongodb+srv://admin:Wm2NSAcIDR1to0pj@cluster0-nghyh.mongodb.net/test?retryWrites=true&w=majority</em>
+</p>
+<p>A escolha entre o MongoDB do docker ou a do cloudMongoDb é feita no arquivo de recursos <b>application.properties</b> do backend.</p>
+
 <p>
     <strong>
         <span style="text-decoration: underline;">Compilando e Rodando a aplicação</span>
@@ -84,9 +90,7 @@
 <p>O resultado do frontend é copiado para dentro da pasta de resources do backend. Desta forma temos um WAR contendo o backend e frontend.</p>
 <p>Este fat WAR foi instalado no servidor web gratuito a seguir:</p>
 <p>
-    <strong>
-        <span style="text-decoration: underline;">http:</span>
-    </strong>
+    <a href="http://carrinhodecompras-env.gqz6rg3cek.us-east-1.elasticbeanstalk.com">http://carrinhodecompras-env.gqz6rg3cek.us-east-1.elasticbeanstalk.com</a>
 </p>
 <p>Para rodar o projeto localmente, basta acessar a pasta backend e executar o seguinte comando:</p>
 <p>
@@ -153,10 +157,10 @@
 <p>Ainda existe a url do MongoDB, que pode ser utilizada em ferramentas para exibição dos dados armazenados:</p>
 <p>mongodb://localhost:27017@carrinho-compras</p>
 <h2>Conclusão</h2>
-<p>Com o tempo de somente 1 semana, provei que tenho conhecimento de várias tecnologias desde banco de dados até UI, passando por devops e infraestrutura.</p>
-<p>Pela falta de tempo e de uma equipe mais especializada, não foi possível fazer User Interfaces bonitas e responsivas, com efeitos e validações. A arquitetura do banco de dados foi a mais simples possível e a dockerização foi feita somente do frontend e de forma bem simples.</p>
+<p>Com o prazo de somente 1 semana, consegui mostrar que tenho conhecimento de várias tecnologias desde banco de dados até UI, passando por devops e infraestrutura.</p>
+<p>Pela falta de tempo e de uma equipe de auxilio, não foi possível fazer User Interfaces bonitas e responsivas, com efeitos e validações. A arquitetura dos modelos do banco de dados foi criada de forma simples e a dockerização foi feita somente do frontend.</p>
 <p>O projeto maven também poderia ser mais automatizado e o controle de versão poderia ter uma estratégia de branches e tags.</p>
-<p>Decidi por não focar em uma &uacute;nica tecnologia (como por exemplo em um belo frontend) pois engenheiros sênior devem ser capazes de ver o sistema como um todo e ter um amplo conhecimento de toda a arquitetura (fullstack) e suas tecnologias.</p>
+<p>Decidi por não focar em uma única tecnologia (como por exemplo em um belo frontend) pois engenheiros sênior devem ser capazes de ver o sistema como um todo e ter um amplo conhecimento de toda a arquitetura (fullstack) e suas tecnologias.</p>
 <p>Obrigado pela oportunidade.</p>
 <h2>Contato</h2>
 <p><b>Vaner José Magalhães</b></p>
