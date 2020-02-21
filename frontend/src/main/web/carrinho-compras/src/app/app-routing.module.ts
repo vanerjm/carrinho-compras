@@ -9,9 +9,11 @@ import { ItemUpdateComponent } from './item-update/item-update.component';
 import { CartListComponent } from './cart-list/cart-list.component';
 import { CartFormComponent } from './cart-form/cart-form.component';
 import { CartUpdateComponent } from './cart-update/cart-update.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  { path: '', component: UserListComponent },
+  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'users', component: UserListComponent },
   { path: 'adduser', component: UserFormComponent },
   { path: 'edituser/:id', component: UserUpdateComponent },

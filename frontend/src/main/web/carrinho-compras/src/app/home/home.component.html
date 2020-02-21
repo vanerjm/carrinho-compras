@@ -1,0 +1,130 @@
+<h1>Simulador de Carrinho de Compras do Vaner</h1>
+<p>Seja bem vindo ao simulador de carrinho de compras do <strong>Vaner</strong>.</p>
+<p>Este simulador é parte do processo de avaliação técnica da <strong>Altran</strong>.</p>
+<p>O carrinho foi arquitetado para provar conhecimento em:</p>
+<ul>
+    <li>Spring Boot - Backend</li>
+    <li>Angular 8 - FrontEnd</li>
+    <li>MongoDB - Banco de Dados utilizado</li>
+    <li>Docker - Um container para cada parte do sistema: Backend, Frontend e Database.</li>
+    <li>Maven - Builds e controle de dependências</li>
+    <li>Git - Controle de Versão</li>
+</ul>
+<p>
+    <span style="text-decoration: underline;">
+        <strong>Backend</strong>
+    </span>
+</p>
+<p>Utilizando o Spring Boot, foram criados os modelos de dados para o usuário, item e carrinho de compras, sendo cada um desse um document do MongoDB.</p>
+<p>Também foi utilizada uma interface provida pelo Spring para lidar com os dados no MongoDB (MongoRepository).</p>
+<p>Por fim, foram criadas interfaces rest para fazer o CRUD dos modelos citados acima.</p>
+<p>
+    <span style="text-decoration: underline;">
+        <strong>Frontend</strong>
+    </span>
+</p>
+<p>O frontend foi criado em Angular 8 sobre Node. Os modelos de dados do backend foram replicados no Angular para serem utlizados nas requisições. O layout foi feito utilizando-se bootstrap e jquery.</p>
+<p>
+    <span style="text-decoration: underline;">
+        <strong>Banco de Dados</strong>
+    </span>
+</p>
+<p>Foi utilizado o MongoDB para armazenar os dados gerados pelo sistema.</p>
+<p>
+    <span style="text-decoration: underline;">
+        <strong>Docker</strong>
+    </span>
+</p>
+<p>O módulo frontend possu um dockerfile para geração de uma imagem a ser utilizada.</p>
+<p>Já o container do mongoDB foi utilizado um dos mais tradicionais do DockerHub.</p>
+<p>
+    <span style="text-decoration: underline;">
+        <strong>Maven</strong>
+    </span>
+</p>
+<p>O maven é responsável pelo gerenciamento dos artefatos que o projeto é dependente e pela geração do jar do backend. Além disso é possível executar o backend pela linha de comando.</p>
+<p>
+    <span style="text-decoration: underline;">
+        <strong>Controle de Versão</strong>
+    </span>
+</p>
+<p>Para o controle de versão foi utilizado o Git e o repositório Git Hub:</p>
+<p>
+    <a href="https://github.com/vanerjm/carrinho-compras">https://github.com/vanerjm/carrinho-compras</a>
+</p>
+<h2>Como executar o carrinho de Compras</h2>
+<p>Pre-requisitos:</p>
+<ul>
+    <li>Java 8</li>
+    <li>Docker</li>
+    <li>Maven</li>
+    <li>Git</li>
+</ul>
+<p>
+    <span style="text-decoration: underline;">
+        <strong>Iniciar o MongoDB</strong>
+    </span>
+</p>
+<p>Para não precisar instalar diretamente o mongoDb, foi utilizada uma imagem provida pelo Docker Hub. Basta inicializar o docker e executar o seguinte comando:</p>
+<p>
+    <em>docker run -d -p 27017:27017 -e AUTH=no tutum/mongodb</em>
+</p>
+<p>Este comando fará o download mongodb e o inicializará na porta 27017 sem nenhuma autenticação (usuário/senha).</p>
+<p>
+    <strong>
+        <span style="text-decoration: underline;">Iniciar o Backend </span>
+    </strong>
+</p>
+<p>Para iniciar o backend, basta acessar a pasta backend do projeto e executar o comando maven:</p>
+<p>
+    <em>mvn spring-boot:run</em>
+</p>
+<p>Este comando rodará a aplicação.</p>
+<p>
+    <span style="text-decoration: underline;">
+        <strong>Iniciar o Fronend</strong>
+    </span>
+</p>
+<p>Para o frontend foi criado um arquivo dockerfile contendo as informações necessárias para gerar um container com a aplicação feita em Angular e rodando no Node.</p>
+<p>Para criar a imagem do frontend, basta acessar a pasta carrinho-compras no diretório frontend\src\main\web\carrinho-compras e executar o comando para criação de imagem:</p>
+<p>
+    <em>docker build -f carrinho_frontend.dockerfile -t vanerjm/carrinho-frontend .</em>
+</p>
+<p>onde carrinho_frontend.dockerfile é o nome do arquivo, e vanerjm/carrinho-frontend é o nome da tag escolhida. Pode ser alterada para qualquer nome</p>
+<p>Este comando fará o download de uma imagem do Node e copiará os do frontend para dentro da pasta do Node.</p>
+<p>Ao terminar, podemos verificar se a imagem criada está disponível utilizando o comando:</p>
+<p>
+    <em>docker images</em>
+</p>
+<p>Por fim, para executar a imagem gerada basta rodar o comando:</p>
+<p>
+    <em>docker run -d -p 4201:4200 vanerjm/carrinho-frontend</em>
+</p>
+<p>Desta forma, um container na porta 4201 será criado com a imagem do frontend.</p>
+<h2>Acessando o sistema</h2>
+<p>Para acessar o sistema, basta acessar a url:</p>
+<p>
+    <a href="http://localhost:4201">http://localhost:4201</a>
+</p>
+<p>O CRUD dos usuários, itens e carrinho pode ser feito pelo menú no topo da página!</p>
+<h3>Outras URLs</h3>
+<p>A url acima é do frontend, onde o usuário irá interagir com o sistema. Mas outras duas url estão disponíveis.</p>
+<p>
+    <a href="http://localhost:8080">http://localhost:8080</a> é a url do backend. É possível utilizá-la em ferramentas como o Postman para enviar requisições para as interfaces Rest expostas (CRUD dos modelos de dados), como por exemplo:</p>
+<p>
+    <a href="http://localhost:8080/users">http://localhost:8080/users</a> - Read (GET) dos usuários.</p>
+<p>
+    <a href="http://localhost:8080/users/&lt;id&gt;">http://localhost:8080/users/&lt;id&gt;</a> - Delete (DELETE) de um usuário.</p>
+<p>Ainda existe a url do MongoDB, que pode ser utilizada em ferramentas para exibição dos dados armazenados:</p>
+<p>mongodb://localhost:27017@carrinho-compras</p>
+<h2>Conclusão</h2>
+<p>Com o tempo de somente 1 semana, tentei provar que tenho conhecimento de várias tecnologias desde banco de dados até UI, passando por devops e infraestrutura.</p>
+<p>Pela falta de tempo e de uma equipe mais especializada, não foi possível fazer User Interfaces bonitas e responsivas, com efeitos e validações. A arquitetura do banco de dados foi a mais simples possível e a dockerização foi feita somente do frontend e de forma bem simples.</p>
+<p>O projeto maven também poderia ser mais automatizado e o controle de versão poderia ter uma estratégia de branches e tags.</p>
+<p>Decidi por não focar em uma &uacute;nica tecnologia (como por exemplo em um belo frontend) pois engenheiros sênior devem ser capazes de ver o sistema como um todo e ter um amplo conhecimento de toda a arquitetura (fullstack) e suas tecnologias.</p>
+<p>Obrigado pela oportunidade.</p>
+<h2>Contato</h2>
+<p><b>Vaner José Magalhães</b></p>
+<p><span class="glyphicon glyphicon-earphone"></span> +55 35 999-4-2518</p>
+<p><span class="glyphicon glyphicon-envelope"></span> vanerjm@gmail.com</p>
+<p>Skype: vaner.magalhaes</p>

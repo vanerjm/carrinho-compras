@@ -15,6 +15,7 @@ import { CartListComponent } from './cart-list/cart-list.component';
 import { CartUpdateComponent } from './cart-update/cart-update.component';
 import { CartFormComponent } from './cart-form/cart-form.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { HomeComponent } from './home/home.component';
  
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     ItemFormComponent,
     CartListComponent,
     CartUpdateComponent,
-    CartFormComponent
+    CartFormComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
