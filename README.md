@@ -1,7 +1,7 @@
 Simulador de Carrinho de Compras do Vaner
 =========================================
 
-Seja bem vindo ao simulador de carrinho de compras do **Vaner**.
+Seja bem vindo ao simulador de carrinho de compras.
 
 Este simulador é parte do processo de avaliação técnica da **Altran**.
 
