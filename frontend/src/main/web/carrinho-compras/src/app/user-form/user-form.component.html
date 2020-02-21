@@ -2,18 +2,18 @@
   <div class="card-body">
     <form (ngSubmit)="onSubmit()" #userForm="ngForm">
       <div class="form-group">
-        <label for="name">Name</label>
+        <label for="name">Nome</label>
         <input type="text" [(ngModel)]="user.name" class="form-control" id="name" name="name" placeholder="Enter your name"
           required #name="ngModel">
         </div>
-        <div [hidden]="!name.pristine" class="alert alert-danger">Name is required</div>
+        <div [hidden]="!name.pristine" class="alert alert-danger">Um nome é necessário</div>
         <div class="form-group">
           <label for="email">Email</label>
           <input type="email" [(ngModel)]="user.email" class="form-control" id="email" name="email" placeholder="Enter your email address"
           required #email="ngModel">
-            <div [hidden]="!email.pristine" class="alert alert-danger">Email is required</div>
+            <div [hidden]="!email.pristine" class="alert alert-danger">Email é mandatório</div>
           </div>
-          <button type="submit" [disabled]="!userForm.form.valid" class="btn btn-info">Submit</button>
+          <button type="submit" [disabled]="!userForm.form.valid" class="btn btn-info">Salvar</button>
         </form>
       </div>
     </div>
