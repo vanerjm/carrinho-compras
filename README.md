@@ -3,8 +3,6 @@ Simulador de Carrinho de Compras do Vaner
 
 Seja bem vindo ao simulador de carrinho de compras.
 
-Este simulador é parte do processo de avaliação técnica da **Altran**.
-
 O carrinho foi arquitetado para provar conhecimento em:
 
 -   Spring Boot - Backend
