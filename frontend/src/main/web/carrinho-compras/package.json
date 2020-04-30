@@ -21,7 +21,7 @@
     "@angular/router": "~8.2.4",
     "@ng-select/ng-select": "^3.7.2",
     "bootstrap": "^3.3.5",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "rxjs": "~6.4.0",
     "rxjs-compat": "^6.5.4",
     "tslib": "^1.10.0",
